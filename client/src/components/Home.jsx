@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div>
       
-      <h1 className={styles.title}>Dogs App</h1>
+      <h1 className={styles.title}>DogsApp</h1>
       <button onClick={(e) => handleClick(e)}>Volver a cargar perros</button>
       <div>
         <select>

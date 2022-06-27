@@ -37,15 +37,4 @@
   }
 }
 
-h1 {
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
-  /* background-color: rgba(113, 122, 255, 0.80); */
-  margin-left: 200px;
-  margin-right: 200px;
-  margin-top: 50px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  border-radius: 18px;
-}
+

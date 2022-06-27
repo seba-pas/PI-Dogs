@@ -11,7 +11,7 @@ function App() {
         <Route exact path='/' component={Home}/>
       </Switch>
       <div className="App">
-        <h1>Dogs App</h1>
+        <h1>PetApp</h1>
       </div>      
     </BrowserRouter>
   );
