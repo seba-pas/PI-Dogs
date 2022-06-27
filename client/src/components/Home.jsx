@@ -26,7 +26,7 @@ export default function Home() {
     <div>
       
       <h1 className={styles.title}>DogsApp</h1>
-      <button onClick={(e) => handleClick(e)}>Volver a cargar perros</button>
+      {/* <button onClick={(e) => handleClick(e)}>Volver a cargar perros</button>
       <div>
         <select>
           <option value="asc">Ascendente</option>
@@ -37,7 +37,7 @@ export default function Home() {
           <option value="api">Existente</option>
           <option value="created">Creado por nosotros</option>
         </select>
-      </div>
+      </div> */}
       
       <Cards />
     </div>
