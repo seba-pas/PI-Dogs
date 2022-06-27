@@ -1,8 +1,8 @@
 const initialState = {
-  dogs: [],
+  dogs: []
 };
 
-export function rootReducer(state = initialState, action) {
+export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "GET_DOGS":
       return {
@@ -11,5 +11,8 @@ export function rootReducer(state = initialState, action) {
       };
 
     default:
+       return {
+        ...state
+       }
   }
 }
