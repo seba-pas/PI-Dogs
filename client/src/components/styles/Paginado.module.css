@@ -1,0 +1,40 @@
+.paginas {
+  background-color: rgba(255, 255, 255, 0.908);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 10px;
+}
+
+
+.paginas button {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  border: none;
+  color: #5894ae;
+  padding: 4px;
+  margin: 2px;
+  /* margin-left: 3px;
+  margin-right: 3px; */
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1); */
+  background-color: rgba(255, 255, 255, 0.267);
+}
+
+.paginas button:hover {
+  padding: 0px;
+  font-size: 25px;
+  font-weight: bolder;
+  /* transition: 0.8s ease; */
+}
+
+
+
+
