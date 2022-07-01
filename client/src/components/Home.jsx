@@ -1,14 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogs, orderByName, orderByWeight } from "../actions";
+import {
+  getDogs,
+  orderByName,
+  orderByWeight,
+  getTemperaments,
+  temperamentsFilter,
+  createdFilter,
+} from "../actions";
 import Cards from "./Cards";
 import styles from "./styles/Home.module.css";
 import Paginado from "./Paginado";
+import { SearchBar } from "./SearchBar";
 
 export default function Home() {
   // guardo los hooks en las constantes
   const allDogs = useSelector((state) => state.dogs);
+  const temperaments = useSelector((state) => state.temperaments);
   const dispatch = useDispatch();
   const [orden, setOrden] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,6 +37,9 @@ export default function Home() {
   useEffect(() => {
     dispatch(getDogs());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getTemperaments());
+  }, [dispatch]);
 
   //funcion para volver a cargar los perros (salir de los filtros, etc)
   function handleClick(e) {
@@ -43,48 +55,98 @@ export default function Home() {
     setOrden(`Orden ${e.target.value}`);
   }
 
-  function handleSortedW(e){
+  function handleFilterWeight(e) {
     e.preventDefault();
-      dispatch(orderByWeight(e.target.value));
-      setCurrentPage(1);
-      setOrden(`orden ${e.target.value}`);
-    
+    dispatch(orderByWeight(e.target.value));
+    setCurrentPage(1);
+    setOrden(`orden ${e.target.value}`);
   }
 
+  function handleFilterTemperaments(e) {
+    e.preventDefault();
+    dispatch(temperamentsFilter(e.target.value));
+    setCurrentPage(1);
+    setOrden(`orden ${e.target.value}`);
+  }
 
-
+  function handleCreatedFilter(e) {
+    e.preventDefault();
+    dispatch(createdFilter(e.target.value));
+    setCurrentPage(1);
+    setOrden(`Orden ${e.target.value}`);
+  }
 
   // render del componente
   return (
     <div>
       <h1 className={styles.title}>DogsApp</h1>
 
+
+
+
+      <div className={styles.selectors}>
+        {/* alfabetic filter */}
+        <select onChange={(e) => handleSorted(e)}>
+          <option hidden selected>
+            Alphabetic
+          </option>
+          <option value="asc">Ascendent</option>
+          <option value="desc">Descendent</option>
+        </select>
+
+        {/* weight Filter */}
+        <select onChange={(e) => handleFilterWeight(e)}>
+          <option hidden selected>
+            Weight
+          </option>
+          <option value="asc">Ascendent</option>
+          <option value="desc">Descendent</option>
+        </select>
+        <select onChange={(e) => handleFilterTemperaments(e)}>
+          {/* temperamentsFilter */}
+          <option hidden selected>
+            Temperaments
+          </option>
+          <option value="all">All</option>
+          {temperaments &&
+            temperaments.map((temps) => {
+              return (
+                <option key={temps.id} value={temps.name}>
+                  {temps.name}
+                </option>
+              );
+            })}
+        </select>
+        {/* existence filter */}
+        <select onChange={(e) => handleCreatedFilter(e)}>
+          <option hidden selected>
+            Existence
+          </option>
+          <option value="all">All</option>
+          <option value="api">from API</option>
+          <option value="created">Created</option>
+        </select>
+        
+      </div>
+
+      
+       <SearchBar />
+
+      
       <Paginado
         dogsPerPage={dogsPerPage}
         allDogs={allDogs.length}
         paginado={paginado}
       />
+      
+     
 
-      <div className={styles.selectors}>
-        <select onChange={(e) => handleSorted(e)}>
-          <option>Alfabetico</option>
-          <option value="asc">Ascendente</option>
-          <option value="desc">Descendente</option>
-        </select>
+     
+
+      <div className={styles.cont}>
         <button className={styles.boton} onClick={(e) => handleClick(e)}>
-          Volver a cargar perros
+          Refresh Dogs
         </button>
-        <select onChange={(e) => handleSortedW(e)}>
-          <option>Peso</option>
-          <option value="asc">Ascendente</option>
-          <option value="desc">Descendente</option>
-        </select>
-        <select>
-          <option>Existencia</option>
-          <option value="all">Todos</option>
-          <option value="api">Existente</option>
-          <option value="created">Creado por nosotros</option>
-        </select>
       </div>
 
       <Cards currentDogs={currentDogs} />

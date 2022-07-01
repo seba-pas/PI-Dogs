@@ -1,5 +1,7 @@
 const initialState = {
-  dogs: []
+  dogs: [],
+  temperaments: [],
+  allDogs: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -8,85 +10,116 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         dogs: action.payload,
+        allDogs: action.payload,
       };
-      case "ORDER_BY_NAME":
-        
-        let sortedArr = action.payload === 'asc' ?
-        // ascendente
-        state.dogs.sort(function (a, b) {
-            if(a.name > b.name) {
+    case "GET_TEMPERAMENTS":
+      return {
+        ...state,
+        temperaments: action.payload,
+      };
+    case "ORDER_BY_NAME":
+      let sortedArr =
+        action.payload === "asc"
+          ? // ascendente
+            state.dogs.sort(function (a, b) {
+              if (a.name > b.name) {
                 return 1;
-            }
-            if(b.name > a.name) {
+              }
+              if (b.name > a.name) {
                 return -1;
-            }
-            return 0;
-        }) :
-        //descendente
-        state.dogs.sort(function (a, b) {
-            if(a.name > b.name) {
+              }
+              return 0;
+            })
+          : //descendente
+            state.dogs.sort(function (a, b) {
+              if (a.name > b.name) {
                 return -1;
-            }
-            if(b.name > a.name) {
+              }
+              if (b.name > a.name) {
                 return 1;
-            }
-            return 0;
-        })
-        return {
-            ...state,
-            dogs: sortedArr
-        };
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        dogs: sortedArr,
+      };
 
+    case "ORDER_BY_WEIGHT":
+      let arrByWeight =
+        action.payload === "asc"
+          ? state.dogs.sort((a, b) => {
+              let weightSplitA = a.weight.split(" - ");
+              let weightSplitB = b.weight.split(" - ");
 
+              let weightA = weightSplitA > 0 ? weightSplitA : weightSplitA[0];
+              let weightB = weightSplitA > 0 ? weightSplitB : weightSplitB[0];
 
+              if (Array.isArray(weightA)) {
+                weightA = weightA[0];
+              }
+              if (Array.isArray(weightB)) {
+                weightB = weightB[0];
+              }
+              if (isNaN(weightA)) {
+                weightA = weightB;
+              }
+              if (isNaN(weightB)) {
+                weightB = 0;
+              }
+              console.log(weightA);
+              console.log(weightB);
+              return weightA - weightB;
+            })
+          : //descendente
+            state.dogs.sort((a, b) => {
+              //split de weight (usamos los menores)
+              let weightSplitA = a.weight.split(" - ");
+              let weightSplitB = b.weight.split(" - ");
+              let weightA = parseInt(weightSplitA[0]);
+              let weightB = parseInt(weightSplitB[0]);
 
-        case 'ORDER_BY_WEIGHT':
-          let arrByWeight = action.payload === 'asc'?
-          state.dogs.sort((a, b) => {
-            //split de weight (usamos los menores)
-           
-            let weightSplitA = a.weight.split('-')
-            let weightA = weightSplitA[0]
-            let weightSplitB = b.weight.split('-')
-            let weightB = weightSplitB[0]
-            if(!a.weight) weightA = 0
-            if(!b.weight)  weightB = 0
+              return weightB - weightA;
+            });
+      return {
+        ...state,
 
-            //ascendente
-            if(weightA > weightB){
-              return 1
-            }
-            if(weightB > weightA) {
-              return -1;
-          }
-          return 0;
-      }) :
-       //descendente
-       state.dogs.sort((a, b) => {
-        let weightSplitA = a.weight.split('-')
-        let weightA = weightSplitA[0]
-        let weightSplitB = b.weight.split('-')
-        let weightB = weightSplitB[0]
-         if(!a.weight) weightA = 0
-            if(!b.weight)  weightB = 0
+        dogs: arrByWeight,
+      };
+    case "TEMPERAMENTS_FILTER":
+      const allDogsState = state.Dogs;
+      const tempsFilter =
+        action.payload === "all"
+          ? allDogsState
+          : allDogsState.filter((e) => e.temperaments.includes(action.payload));
+      return {
+        ...state,
+        dogs: tempsFilter,
+      };
+    case "CREATED_FILTER":
+      const dogsToCreatedFilter = state.dogs; 
+      console.log(dogsToCreatedFilter)    
+      const createdFilter =
+        action.payload === "created"
+          ? dogsToCreatedFilter.filter((e) => e.created)
+          : dogsToCreatedFilter.filter((e) => !e.created);
+      return {
+        ...state,
+        dogs: action.payload === "all" ? state.allDogs : createdFilter,
+      };
+    case "SEARCH_BY_NAME":
+      return {
+        ...state,
+        dogs: action.payload,
+      };
+      // case 'POST_DOG':
+      //   return {
+      //     ...state
+      //   }
 
-
-        if(weightA > weightB) {
-            return -1;
-        }
-        if(weightB > weightA) {
-            return 1;
-        }
-        return 0;
-    })
-    return {
-      ...state,
-      dogs: arrByWeight
-    };                   
-      
     default:
-       return {
-        ...state
-       }
+      return {
+        ...state,
+      };
   }
 }

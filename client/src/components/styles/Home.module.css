@@ -20,12 +20,15 @@
 }
 
 .selectors {
+  margin-top: 20px;
+
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #5894ae;
+  background-color: rgba(255, 255, 255, 0.45);
 }
 
 .selectors select {
@@ -36,19 +39,23 @@
   border-radius: 18px;
   color: white;
   background-color: rgba(88, 148, 174, 0.9);
-  height: 30px;
+  height: 35px;
   width: auto;
   overflow: hidden;
   padding: 5px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
-
 }
-
+.cont {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
 .boton {
+  align-items: center;
   margin-left: 40px;
   height: 40px;
   width: 200px;
-  background-color: rgba(255, 255, 255, 0.908);
+  background-color: rgba(255, 255, 255, 0.9);
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
   font-size: 95%;
@@ -56,4 +63,66 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   color: #5894ae;
   border: none;
+}
+
+.boton:hover {
+  font-size: large;
+  background-color: rgba(255, 255, 255, 1);
+  transition: 0.5s ease;
+}
+
+.searchbar {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  padding-left: 15px;
+  margin-left: 40px;
+  height: 40px;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.95);
+  font-weight: bolder;
+  font-family: "Montserrat", sans-serif;
+  font-size: 95%;
+  border-radius: 18px;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
+  color: #5894ae;
+  border: none;
+}
+input::placeholder {
+  padding-left: 10px;
+  color: #5894ae;
+}
+
+.searchbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.boton2 {
+  align-items: center;
+  margin-left: 5px;
+  height: 40px;
+  width: 100px;
+  background-color: rgba(255, 255, 255, 0.95);
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-size: 95%;
+  border-radius: 18px;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
+  color: #5894ae;
+  border: none;
+}
+
+.boton2:hover{
+  font-size: large;
+  background-color: rgba(255, 255, 255, 1);
+  transition: 0.5s ease;
+
 }

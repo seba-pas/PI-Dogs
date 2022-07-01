@@ -1,15 +1,16 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import {styles} from './styles/LandingPage.module.css'
+import image from "./styles/img/dog.png";
 
-const LandingPage = () => {
+export default function LandingPage() {
   return (
     <div>
-      <h3>Welcome to DogsApp</h3>
-      <Link to='/home'>
-        <button>Ingresar</button>        
+      <img src={image} alt="sorry, could not find img" />
+
+      <Link to="/home">
+        <button>Ingresar</button>
       </Link>
     </div>
   );
-};
-
-export default LandingPage;
+}
