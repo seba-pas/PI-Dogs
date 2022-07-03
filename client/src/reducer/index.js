@@ -2,6 +2,7 @@ const initialState = {
   dogs: [],
   temperaments: [],
   allDogs: [],
+  dogDetails: {}
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -87,7 +88,7 @@ export default function rootReducer(state = initialState, action) {
         dogs: arrByWeight,
       };
     case "TEMPERAMENTS_FILTER":
-      const allDogsState = state.Dogs;
+      const allDogsState = state.allDogs;
       const tempsFilter =
         action.payload === "all"
           ? allDogsState
@@ -116,6 +117,19 @@ export default function rootReducer(state = initialState, action) {
       //   return {
       //     ...state
       //   }
+      case 'GET_DETAILS':
+        return {
+          ...state,
+          dogDetails: action.payload
+        }
+        case 'SET_DETAIL_DOGS':
+          return {
+            ...state,
+            dogDetails: {}
+            
+
+
+          }
 
     default:
       return {

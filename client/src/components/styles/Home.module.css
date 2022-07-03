@@ -1,5 +1,6 @@
 .title {
   font-family: "Montserrat", sans-serif;
+  text-decoration: none;
   margin-top: 70px;
   margin-bottom: 70px;
   font-weight: 400;
@@ -17,6 +18,12 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+}
+
+.spinner{
+  display:flex;
+  margin-top: 200px;
+  justify-content: center;
 }
 
 .selectors {
@@ -74,6 +81,7 @@
 .searchbar {
   display: flex;
   justify-content: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 input {
@@ -93,11 +101,13 @@ input {
 input::placeholder {
   padding-left: 10px;
   color: #5894ae;
+  font-family: "Montserrat", sans-serif;
 }
 
 .searchbar {
   padding-top: 20px;
   padding-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
 
   display: flex;
   justify-content: center;
@@ -120,9 +130,64 @@ input::placeholder {
   border: none;
 }
 
-.boton2:hover{
+.boton2:hover {
   font-size: large;
   background-color: rgba(255, 255, 255, 1);
   transition: 0.5s ease;
+}
 
+.containerD {
+  background-color: rgba(255, 255, 255, 0.975);
+  font-family: "Montserrat", sans-serif;
+  padding-bottom: 20px;
+
+  width: 30%;
+  height: auto;
+  border-radius: 20px;
+  margin: 50px;
+  margin-left: 30%;
+  align-items: center;
+  border: none;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.35), 0 6px 20px 0 rgba(0, 0, 0, 0.35);
+}
+
+.containerD img {
+  display: flex;
+  align-content: center;
+  padding-left: 5%;
+  padding-top: 5%;
+  max-width: 90%;
+  height: auto;
+  border-radius: 35px;
+}
+
+.containerD button {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 40%;
+
+  height: 30px;
+  width: 100px;
+  background-color: #5894ae;
+  text-align: center;
+  padding-top: 5px;
+
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-size: 95%;
+  border-radius: 18px;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
+  color: white;
+  border: none;
+}
+
+.loading {
+  margin-left: 150px;
+  margin-right: 150px;
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 18px;
+  font-family: "Montserrat", sans-serif;
+
+  color: white;
+  font-size: 150px;
 }

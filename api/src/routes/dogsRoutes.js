@@ -18,6 +18,8 @@ router.get("/", async (req, res) => {
       image: dog.image,
       weight: dog.weight,
       temperaments: dog.temperaments,
+      id: dog.id
+      
       
       
     

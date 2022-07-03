@@ -12,6 +12,7 @@ export default function Cards({ currentDogs }) {
           weight={el.weight}
           temperaments={el.temperaments}
           image={el.image}
+          id={el.id}
         />
       ))}
     </div>

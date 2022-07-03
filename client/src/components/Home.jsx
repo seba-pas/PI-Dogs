@@ -13,6 +13,7 @@ import Cards from "./Cards";
 import styles from "./styles/Home.module.css";
 import Paginado from "./Paginado";
 import { SearchBar } from "./SearchBar";
+import { SpinnerCircular } from "spinners-react";
 
 export default function Home() {
   // guardo los hooks en las constantes
@@ -81,9 +82,6 @@ export default function Home() {
     <div>
       <h1 className={styles.title}>DogsApp</h1>
 
-
-
-
       <div className={styles.selectors}>
         {/* alfabetic filter */}
         <select onChange={(e) => handleSorted(e)}>
@@ -126,30 +124,33 @@ export default function Home() {
           <option value="api">from API</option>
           <option value="created">Created</option>
         </select>
-        
       </div>
 
-      
-       <SearchBar />
-
-      
-      <Paginado
-        dogsPerPage={dogsPerPage}
-        allDogs={allDogs.length}
-        paginado={paginado}
-      />
-      
-     
-
-     
-
-      <div className={styles.cont}>
+      <SearchBar />
+      {currentDogs.length > 0 ? (
+        <div>
+        <Paginado
+          dogsPerPage={dogsPerPage}
+          allDogs={allDogs.length}
+          paginado={paginado}
+        /> 
+        <div className={styles.cont}>
         <button className={styles.boton} onClick={(e) => handleClick(e)}>
-          Refresh Dogs
+         Refresh
         </button>
+        </div>
+         <Cards currentDogs={currentDogs} />
+      
       </div>
+      ) : (
+        <div className={styles.spinner}>
+          <SpinnerCircular color="white" size="300px" />
+        </div>
+      )}
 
-      <Cards currentDogs={currentDogs} />
+      
+
+     
     </div>
   );
 }
