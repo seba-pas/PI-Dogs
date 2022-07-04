@@ -31,7 +31,7 @@ async function getApiDogs(req, res, next) {
 // los perros de la db
 async function getDbDogs(req, res) {
   try {
-    let dbDogs = await Dogs.findAll({
+    return await Dogs.findAll({
       include: {
         model: Temperaments,
         attributes: ["name"],
@@ -39,8 +39,7 @@ async function getDbDogs(req, res) {
           attributes: [],
         },
       },
-    });
-    return dbDogs;
+    });   
   } catch (error) {
     console.log("error in getApidogs", error);
   }

@@ -125,11 +125,15 @@ export default function rootReducer(state = initialState, action) {
         case 'SET_DETAIL_DOGS':
           return {
             ...state,
-            dogDetails: {}
-            
+            dogDetails: {}    
 
 
           }
+          case 'POST_DOG':
+            return {
+              ...state,
+
+            }
 
     default:
       return {

@@ -14,15 +14,11 @@ router.get("/", async (req, res) => {
   let allDogsInfo = await getAllDogs();
   let allDogs = allDogsInfo.map((dog) => {
     return {
+      id: dog.id,
       name: dog.name,
       image: dog.image,
       weight: dog.weight,
       temperaments: dog.temperaments,
-      id: dog.id
-      
-      
-      
-    
     };
   });
   if (name) {
@@ -41,7 +37,7 @@ router.get("/:id", async (req, res) => {
   const id = req.params.id;
   try {
     let dogsFromDb = [];
-    if (id >= 265) {
+    if (id.length > 6) {
       dogsFromDb = await Dogs.findAll({
         where: { id: id },
         include: Temperaments,
@@ -65,16 +61,25 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { name, height, weight, life_span, temperament, image } = req.body;
+    const { name, height, weight, life_span, temperaments, image } = req.body;
     const newDog = await Dogs.create({
       name,
       height,
       weight,
       life_span,
-      image,
+      image
+     
+
     });
-    newDog.addTemperaments(temperament);
-    res.status(201).json(newDog);
+    let temp = await Temperaments.findAll({
+      where:{name:temperaments}
+  }) 
+  // let oso=temp.map((e)=>{return e.dataValues.name})
+  // console.log(oso)
+  //relaciono la tabla Dog, con la de temperamento en dogXtemperament
+  newDog.addTemperaments(temp);
+  res.send('New breed Added!')
+   
   } catch (error) {
     res.send(error);
   }

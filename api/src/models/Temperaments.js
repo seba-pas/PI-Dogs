@@ -9,15 +9,19 @@ module.exports = (sequelize) => {
       id: {
         type: DataTypes.UUID,
         defaultValue: UUIDV4,
+        primaryKey: true
+      
+        
       },
       name: {
         type: DataTypes.STRING,
-        primaryKey: true,
         allowNull: false,
+        
       },
     },
     {
-      timestamps: false,
+      timestamps: false
+      
     }
   );
 };

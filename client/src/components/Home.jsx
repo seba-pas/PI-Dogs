@@ -14,8 +14,8 @@ import styles from "./styles/Home.module.css";
 import Paginado from "./Paginado";
 import { SearchBar } from "./SearchBar";
 import { SpinnerCircular } from "spinners-react";
-import CreateDog from "./CreateDog"
-import {Link} from 'react-router-dom'
+
+import { Link } from "react-router-dom";
 
 export default function Home() {
   // guardo los hooks en las constantes
@@ -141,12 +141,11 @@ export default function Home() {
             <button className={styles.boton} onClick={(e) => handleClick(e)}>
               All Dogs
             </button>
-            <Link to='/createdog'>
+            <Link to="/createdog">
               <button className={styles.boton}>Add a New Breed</button>
             </Link>
-            
           </div>
-          <Cards currentDogs={currentDogs} />          
+          <Cards currentDogs={currentDogs} />
         </div>
       ) : (
         <div className={styles.spinner}>

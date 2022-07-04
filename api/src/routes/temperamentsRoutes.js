@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Temperaments } = require("../db");
+const { Temperaments, Dogs } = require("../db");
 const { getApiDogs } = require("../controllers/dogsControllers");
 
 const router = Router();
@@ -32,7 +32,10 @@ router.get("/", async (req, res) => {
     });
   });
   //todos los temperamentos
-  const totalTemperaments = await Temperaments.findAll();
+  const totalTemperaments = await Temperaments.findAll({
+    attributes: ["id", "name"],
+    include: Dogs,
+  });
 
   res.send(totalTemperaments);
 });
