@@ -14,6 +14,8 @@ import styles from "./styles/Home.module.css";
 import Paginado from "./Paginado";
 import { SearchBar } from "./SearchBar";
 import { SpinnerCircular } from "spinners-react";
+import CreateDog from "./CreateDog"
+import {Link} from 'react-router-dom'
 
 export default function Home() {
   // guardo los hooks en las constantes
@@ -115,6 +117,7 @@ export default function Home() {
               );
             })}
         </select>
+
         {/* existence filter */}
         <select onChange={(e) => handleCreatedFilter(e)}>
           <option hidden selected>
@@ -129,28 +132,27 @@ export default function Home() {
       <SearchBar />
       {currentDogs.length > 0 ? (
         <div>
-        <Paginado
-          dogsPerPage={dogsPerPage}
-          allDogs={allDogs.length}
-          paginado={paginado}
-        /> 
-        <div className={styles.cont}>
-        <button className={styles.boton} onClick={(e) => handleClick(e)}>
-         Refresh
-        </button>
+          <Paginado
+            dogsPerPage={dogsPerPage}
+            allDogs={allDogs.length}
+            paginado={paginado}
+          />
+          <div className={styles.cont}>
+            <button className={styles.boton} onClick={(e) => handleClick(e)}>
+              All Dogs
+            </button>
+            <Link to='/createdog'>
+              <button className={styles.boton}>Add a New Breed</button>
+            </Link>
+            
+          </div>
+          <Cards currentDogs={currentDogs} />          
         </div>
-         <Cards currentDogs={currentDogs} />
-      
-      </div>
       ) : (
         <div className={styles.spinner}>
           <SpinnerCircular color="white" size="300px" />
         </div>
       )}
-
-      
-
-     
     </div>
   );
 }

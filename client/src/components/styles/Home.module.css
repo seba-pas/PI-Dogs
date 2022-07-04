@@ -20,8 +20,8 @@
   border-bottom-right-radius: 50px;
 }
 
-.spinner{
-  display:flex;
+.spinner {
+  display: flex;
   margin-top: 200px;
   justify-content: center;
 }
@@ -135,9 +135,42 @@ input::placeholder {
   background-color: rgba(255, 255, 255, 1);
   transition: 0.5s ease;
 }
+.containerC {
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
+  font-family: "Montserrat", sans-serif;
+  padding: 40px;
+  padding-bottom: 20px;
+
+  width: 30%;
+  height: auto;
+  border-radius: 20px;
+  margin: 50px;
+  margin-left: 30%;
+  align-self: center;
+  border: none;
+
+}
+.contarnerC label {
+  display: inline-block;
+        width: 500px;
+        text-align: right;
+}
+.containerC input {
+  font-weight: bold;
+  
+  background-color: white;
+  width: 300px;
+  text-align: center;
+  
+  padding: 5px 10px;
+}
 
 .containerD {
-  background-color: rgba(255, 255, 255, 0.975);
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
   font-family: "Montserrat", sans-serif;
   padding-bottom: 20px;
 
@@ -148,7 +181,12 @@ input::placeholder {
   margin-left: 30%;
   align-items: center;
   border: none;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.35), 0 6px 20px 0 rgba(0, 0, 0, 0.35);
+}
+.containerD:hover {
+  background-color: rgba(255, 255, 255, 0.975);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.45), 0 6px 20px 0 rgba(0, 0, 0, 0.45);
+
+  transition: 0.85s ease-in-out;
 }
 
 .containerD img {

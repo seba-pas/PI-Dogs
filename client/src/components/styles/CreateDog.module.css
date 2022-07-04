@@ -1,0 +1,13 @@
+.container {
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  font-family: "Montserrat", sans-serif;
+  padding-bottom: 20px;
+  width: 30%;
+  height: auto;
+  border-radius: 20px;
+  margin: 50px;
+  margin-left: 30%;
+  align-items: center;
+  border: none;
+}
