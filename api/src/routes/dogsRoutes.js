@@ -2,10 +2,7 @@ const { Router } = require("express");
 const server = require("../app");
 const { Sequelize } = require("sequelize");
 const { Dog, Temperament } = require("../db");
-const {
-  getAllDogs,
-  getApiDogs,
-} = require("../controllers/dogsControllers");
+const { getAllDogs, getApiDogs } = require("../controllers/dogsControllers");
 
 const router = Router();
 
@@ -18,9 +15,7 @@ router.get("/", async (req, res) => {
       name: dog.name,
       image: dog.image,
       weight: dog.weight,
-      temperaments: dog.temperament
-        ? dog.temperament
-        : dog.temperaments,
+      temperaments: dog.temperament ? dog.temperament : dog.temperaments,
     };
   });
   if (name) {
@@ -50,7 +45,9 @@ router.get("/:id", async (req, res) => {
         },
       });
     }
+    console.log(dogsFromDb)
     if (dogsFromDb.length) {
+     
       res.send(dogsFromDb);
     } else {
       const dogsFromApi = await getApiDogs();
@@ -77,8 +74,8 @@ router.post("/", async (req, res) => {
       image,
     });
 
-    let temperamentsDb = await Temperament.findOne({
-      where: { name: temperaments[0] },
+    let temperamentsDb = await Temperament.findAll({
+      where: { name: temperaments.map((e) => e) },
     });
     console.log(temperaments);
     console.log(temperamentsDb);

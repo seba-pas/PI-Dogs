@@ -46,7 +46,7 @@ export default function Home() {
 
   //funcion para volver a cargar los perros (salir de los filtros, etc)
   function handleClick(e) {
-    e.preventDefault()
+    e.preventDefault();
     dispatch(getDogs());
     setCurrentPage(1);
   }

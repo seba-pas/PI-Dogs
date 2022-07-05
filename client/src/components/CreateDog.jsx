@@ -41,8 +41,8 @@ export default function CreateDog() {
   const [input, setInput] = useState({
     name: "",
     image: "",
-    height: '',
-    weight: "",   
+    height: "",
+    weight: "",
     life_span: "",
     temperaments: [],
   });
@@ -69,12 +69,9 @@ export default function CreateDog() {
     });
   }
 
-
-  
-
   function handleSubmit(e) {
     e.preventDefault();
-    
+
     dispatch(postDog(input));
     alert("New Breed Created");
     setInput({
@@ -168,13 +165,10 @@ export default function CreateDog() {
         </div>
         <div>
           <label>Temperaments</label>
-          <select onChange={(e) => handleSelect}>
+          <select onChange={(e) => handleSelect(e)}>
             <option value="temperaments">Choose Temperaments</option>
-            
 
-            {temperaments.length > 0 ?
-             (
-              
+            {temperaments.length > 0 ? (
               temperaments.map((temps) => {
                 return (
                   <option key={temps.id} value={temps.name}>
@@ -182,15 +176,17 @@ export default function CreateDog() {
                   </option>
                 );
               })
-              
             ) : (
               <option>Loading...</option>
             )}
-            <h3>temps: {input.temperaments.map((e) => e + ", ")}</h3>
           </select>
-          
-          <button style={{ textDecoration: 'none' }} type='submit'>Create Breed</button>
+          <h3>
+            Temperaments Chosen: {input.temperaments.map((e) => e + ". ")}
+          </h3>
 
+          <button style={{ textDecoration: "none" }} type="submit">
+            Create Breed
+          </button>
         </div>
       </form>
       <Link to="/">
