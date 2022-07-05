@@ -98,12 +98,12 @@ export default function rootReducer(state = initialState, action) {
         dogs: tempsFilter,
       };
     case "CREATED_FILTER":
-      const dogsToCreatedFilter = state.dogs; 
+      const dogsToCreatedFilter = state.allDogs; 
       console.log(dogsToCreatedFilter)    
       const createdFilter =
         action.payload === "created"
-          ? dogsToCreatedFilter.filter((e) => e.created)
-          : dogsToCreatedFilter.filter((e) => !e.created);
+          ? dogsToCreatedFilter.filter((e) => e.id.length > 6)
+          : dogsToCreatedFilter.filter((e) => parseInt(e.id) <= 255);
       return {
         ...state,
         dogs: action.payload === "all" ? state.allDogs : createdFilter,

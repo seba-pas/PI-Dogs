@@ -170,7 +170,11 @@ export default function CreateDog() {
           <label>Temperaments</label>
           <select onChange={(e) => handleSelect}>
             <option value="temperaments">Choose Temperaments</option>
-            {temperaments.length > 0 ? (
+            
+
+            {temperaments.length > 0 ?
+             (
+              
               temperaments.map((temps) => {
                 return (
                   <option key={temps.id} value={temps.name}>
@@ -178,12 +182,14 @@ export default function CreateDog() {
                   </option>
                 );
               })
+              
             ) : (
               <option>Loading...</option>
             )}
+            <h3>temps: {input.temperaments.map((e) => e + ", ")}</h3>
           </select>
-          <div><h3>{input.temperaments.map((e) => e + ", ")}</h3></div>
-          <button type='submit'>Create Breed</button>
+          
+          <button style={{ textDecoration: 'none' }} type='submit'>Create Breed</button>
 
         </div>
       </form>

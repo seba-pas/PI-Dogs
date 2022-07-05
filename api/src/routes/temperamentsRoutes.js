@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Temperaments, Dogs } = require("../db");
+const { Temperament, Dog } = require("../db");
 const { getApiDogs } = require("../controllers/dogsControllers");
 
 const router = Router();
@@ -27,17 +27,22 @@ router.get("/", async (req, res) => {
 
   // sincronizar con base de datos
   finalArr.forEach((temp) => {
-    Temperaments.findOrCreate({
+    Temperament.findOrCreate({
       where: { name: temp },
     });
   });
   //todos los temperamentos
-  const totalTemperaments = await Temperaments.findAll({
+  const totalTemperaments = await Temperament.findAll( {
     attributes: ["id", "name"],
-    include: Dogs,
-  });
-
+    include: Dog,
+  }
+);
+ 
   res.send(totalTemperaments);
+
+// const temp = await Temperament.findAll();
+// res.send(temp)
 });
+
 
 module.exports = router;

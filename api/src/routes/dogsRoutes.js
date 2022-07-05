@@ -1,9 +1,9 @@
 const { Router } = require("express");
 const server = require("../app");
-const { Dogs, Temperaments } = require("../db");
+const { Sequelize } = require("sequelize");
+const { Dog, Temperament } = require("../db");
 const {
   getAllDogs,
-  getDbDogs,
   getApiDogs,
 } = require("../controllers/dogsControllers");
 
@@ -18,7 +18,9 @@ router.get("/", async (req, res) => {
       name: dog.name,
       image: dog.image,
       weight: dog.weight,
-      temperaments: dog.temperaments,
+      temperaments: dog.temperament
+        ? dog.temperament
+        : dog.temperaments,
     };
   });
   if (name) {
@@ -38,9 +40,14 @@ router.get("/:id", async (req, res) => {
   try {
     let dogsFromDb = [];
     if (id.length > 6) {
-      dogsFromDb = await Dogs.findAll({
-        where: { id: id },
-        include: Temperaments,
+      dogsFromDb = await Dog.findAll({
+        include: {
+          model: Temperament,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
+        },
       });
     }
     if (dogsFromDb.length) {
@@ -62,24 +69,22 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const { name, height, weight, life_span, temperaments, image } = req.body;
-    const newDog = await Dogs.create({
+    const newDog = await Dog.create({
       name,
       height,
       weight,
       life_span,
-      image
-     
-
+      image,
     });
-    let temp = await Temperaments.findAll({
-      where:{name:temperaments}
-  }) 
-  // let oso=temp.map((e)=>{return e.dataValues.name})
-  // console.log(oso)
-  //relaciono la tabla Dog, con la de temperamento en dogXtemperament
-  newDog.addTemperaments(temp);
-  res.send('New breed Added!')
-   
+
+    let temperamentsDb = await Temperament.findOne({
+      where: { name: temperaments[0] },
+    });
+    console.log(temperaments);
+    console.log(temperamentsDb);
+
+    newDog.addTemperament(temperamentsDb);
+    res.send("New breed Added!");
   } catch (error) {
     res.send(error);
   }

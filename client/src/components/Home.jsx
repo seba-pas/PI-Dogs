@@ -46,7 +46,7 @@ export default function Home() {
 
   //funcion para volver a cargar los perros (salir de los filtros, etc)
   function handleClick(e) {
-    e.preventDefault();
+    e.preventDefault()
     dispatch(getDogs());
     setCurrentPage(1);
   }
@@ -111,7 +111,7 @@ export default function Home() {
           {temperaments &&
             temperaments.map((temps) => {
               return (
-                <option key={temps.id} value={temps.name}>
+                <option key={temps.name} value={temps.name}>
                   {temps.name}
                 </option>
               );
@@ -130,6 +130,7 @@ export default function Home() {
       </div>
 
       <SearchBar />
+
       {currentDogs.length > 0 ? (
         <div>
           <Paginado

@@ -4,7 +4,7 @@ const temperamentsRoutes = require("./temperamentsRoutes");
 
 const router = Router();
 
-router.use("/dogs", dogsRoutes);
 router.use("/temperaments", temperamentsRoutes);
+router.use("/dogs", dogsRoutes);
 
 module.exports = router;
