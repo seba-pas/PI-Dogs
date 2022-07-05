@@ -180,9 +180,9 @@ export default function CreateDog() {
               <option>Loading...</option>
             )}
           </select>
-          <h3>
-            Temperaments Chosen: {input.temperaments.map((e) => e + ". ")}
-          </h3>
+          <h5 className='chosen'>
+            {input.temperaments.map((e) => e + " ")}
+          </h5>
 
           <button style={{ textDecoration: "none" }} type="submit">
             Create Breed

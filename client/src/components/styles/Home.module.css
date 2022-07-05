@@ -280,3 +280,17 @@ input::placeholder {
   color: white;
   font-size: 150px;
 }
+
+
+.chosen {
+  justify-content: center;
+  display:flex;
+  align-content: center;
+
+  color:#5894ae;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+

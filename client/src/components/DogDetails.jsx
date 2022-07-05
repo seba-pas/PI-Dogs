@@ -39,7 +39,7 @@ export default function DogDetail() {
               ? dogs[0].temperaments.map((e) => e.name + "  ")
               : dogs[0].temperaments}
           </h4>
-          <Link style={{ textDecoration: "none" }} to="/">
+          <Link style={{ textDecoration: "none" }} to="/home">
             <button> Volver</button>{" "}
           </Link>
         </div>

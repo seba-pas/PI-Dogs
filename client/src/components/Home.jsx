@@ -79,6 +79,8 @@ export default function Home() {
     setOrden(`Orden ${e.target.value}`);
   }
 
+  
+
   // render del componente
   return (
     <div>
