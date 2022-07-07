@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles/Home.module.css";
+import styles from "./LandingPage.module.css";
 import image from "./styles/img/dog.png";
 
 export default function LandingPage() {
@@ -9,6 +9,7 @@ export default function LandingPage() {
       <Link to="/home">
         <img
           style={{
+            marginTop: "100px",
             display: "flex",
             marginLeft: "30%",
             height: "400px",
@@ -19,7 +20,7 @@ export default function LandingPage() {
           alt="sorry, could not find img"
         />
 
-        <button>Ingresar</button>
+        <div className={styles.div}></div>
       </Link>
     </div>
   );

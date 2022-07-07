@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { postDog, getTemperaments } from "../actions";
 import style from "./styles/Home.module.css";
 
@@ -180,9 +180,7 @@ export default function CreateDog() {
               <option>Loading...</option>
             )}
           </select>
-          <h5 className='chosen'>
-            {input.temperaments.map((e) => e + " ")}
-          </h5>
+          <h5 className="chosen">{input.temperaments.map((e) => e + " ")}</h5>
 
           <button style={{ textDecoration: "none" }} type="submit">
             Create Breed

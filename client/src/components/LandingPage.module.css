@@ -1,0 +1,27 @@
+body {
+  background-image: url("https://adoptastray.com/wp-content/uploads/2014/07/paws2.jpg");
+}
+
+.botonerr {
+  font-size: 25px;
+  color: white;
+  background-color: #5894ae;
+  height: 35px;
+  border-radius: 18px;
+  border: none;
+  text-decoration: none;
+}
+
+.div {
+  margin-top: 150px;
+  margin-right: 100px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.title {
+  color: white;
+  margin-right: 120px;
+  font-size: 45px;
+}

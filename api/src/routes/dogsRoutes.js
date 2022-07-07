@@ -45,9 +45,8 @@ router.get("/:id", async (req, res) => {
         },
       });
     }
-    console.log(dogsFromDb)
+    console.log(dogsFromDb);
     if (dogsFromDb.length) {
-     
       res.send(dogsFromDb);
     } else {
       const dogsFromApi = await getApiDogs();

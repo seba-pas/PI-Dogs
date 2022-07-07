@@ -18,6 +18,10 @@ export default function DogDetail() {
     };
   }, [dispatch, id]);
 
+
+
+  //useEefect
+
   console.log(dogs);
 
   return (
