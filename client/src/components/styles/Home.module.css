@@ -220,6 +220,8 @@ input::placeholder {
 .containerD {
   background-color: rgba(255, 255, 255, 0.85);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  transition: background-color 0.85s ease;
+  transition: box-shadow 0.85s ease;
 
   font-family: "Montserrat", sans-serif;
   padding-bottom: 20px;
@@ -236,8 +238,6 @@ input::placeholder {
 .containerD:hover {
   background-color: rgba(255, 255, 255, 0.975);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.45), 0 6px 20px 0 rgba(0, 0, 0, 0.45);
-
-  transition: 0.85s ease-in-out;
 }
 
 .containerD img {
@@ -281,16 +281,12 @@ input::placeholder {
   font-size: 150px;
 }
 
-
 .chosen {
   justify-content: center;
-  display:flex;
+  display: flex;
   align-content: center;
 
-  color:#5894ae;
+  color: #5894ae;
   font-size: 20px;
   font-weight: bold;
 }
-
-
-

@@ -1,6 +1,7 @@
 .container {
   background-color: rgba(255, 255, 255, 0.975);
   text-decoration: none;
+  transition: width 0.8s ease;
 
   /* background-color: rgba(255, 255, 255, 0.65); */
   width: 18%;
@@ -22,7 +23,7 @@ img {
 
 .container:hover {
   width: 20%;
-  transition: 0.8s;
+  /* transition: 0.8s; */
   /* background-color: rgba(255, 255, 255, 0.85); */
   /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1); */
 }

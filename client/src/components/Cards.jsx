@@ -7,7 +7,7 @@ export default function Cards({ currentDogs }) {
     <div className={styles.tarjeta}>
       {currentDogs.map((el) => (
         <Card
-          key={el.name}
+          key={el.id}
           name={el.name}
           weight={el.weight}
           temperaments={el.temperaments}

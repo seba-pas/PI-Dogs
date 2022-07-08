@@ -11,15 +11,15 @@ function validate(input) {
   } else if (!input.image) {
     errors.name = "image needed";
   } else if (!input.height_min) {
-    errors.name = "min height needed";
+    errors.name = "min height needed ";
   } else if (!input.height_max) {
     errors.name = "max height needed";
   } else if (!input.weight_min) {
-    errors.name = "min weight needed";
+    errors.name = "min weight needed ";
   } else if (!input.weight_max) {
     errors.name = "max weight needed";
   } else if (!input.life_span_min) {
-    errors.name = "min life span needed";
+    errors.name = "min life span needed ";
   } else if (!input.life_span_max) {
     errors.name = "max life span needed";
   }
@@ -29,17 +29,22 @@ function validate(input) {
 export default function CreateDog() {
   const dispatch = useDispatch();
   let temperaments = useSelector((state) => state.temperaments);
+
   temperaments = temperaments.sort((a, b) => {
     return a.name - b.name;
   });
+
   const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
     name: "",
     image: "",
-    height: "",
-    weight: "",
-    life_span: "",
+    height_min: "",
+    height_max: "",
+    weight_min: "",
+    weight_max: "",
+    life_span_min: "",
+    life_span_max: "",
     temperaments: [],
   });
 
@@ -122,7 +127,7 @@ export default function CreateDog() {
         <div>
           <label>Min. Height</label>
           <input
-            type="text"
+            type="number"
             value={input.height_min}
             name="height_min"
             onChange={(e) => handleChange(e)}
@@ -132,7 +137,7 @@ export default function CreateDog() {
         <div>
           <label>Max. Height</label>
           <input
-            type="text"
+            type="number"
             value={input.height_max}
             name="height_max"
             onChange={(e) => handleChange(e)}
@@ -142,7 +147,7 @@ export default function CreateDog() {
         <div>
           <label>Min. Weight</label>
           <input
-            type="text"
+            type="number"
             value={input.weight_min}
             name="weight_min"
             onChange={(e) => handleChange(e)}
@@ -152,7 +157,7 @@ export default function CreateDog() {
         <div>
           <label>Max. Weight</label>
           <input
-            type="text"
+            type="number"
             value={input.weight_max}
             name="weight_max"
             onChange={(e) => handleChange(e)}
@@ -162,7 +167,7 @@ export default function CreateDog() {
         <div>
           <label>Life Span Min</label>
           <input
-            type="text"
+            type="number"
             value={input.life_span_min}
             name="life_span_min"
             onChange={(e) => handleChange(e)}
@@ -174,7 +179,7 @@ export default function CreateDog() {
         <div>
           <label>Life Span Max</label>
           <input
-            type="text"
+            type="number"
             value={input.life_span_max}
             name="life_span_max"
             onChange={(e) => handleChange(e)}
@@ -201,7 +206,7 @@ export default function CreateDog() {
             )}
           </select>
           <h5 className="chosen">{input.temperaments.map((e) => e + " ")}</h5>
-          {errors.name && <h5 style={{fontWeight: 'bold'}}>{errors.name}</h5>}
+          {errors.name && <h5 style={{ fontWeight: "bold" }}>{errors.name}</h5>}
 
           <button style={{ textDecoration: "none" }} type="submit">
             Create Breed
