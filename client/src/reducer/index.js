@@ -22,21 +22,21 @@ export default function rootReducer(state = initialState, action) {
       let sortedArr =
         action.payload === "asc"
           ? // ascendente
-            state.dogs.sort(function (a, b) {
-              if (a.name > b.name) {
+            state.allDogs.sort(function (a, b) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
               }
-              if (b.name > a.name) {
+              if (b.name.toLowerCase()> a.name.toLowerCase()) {
                 return -1;
               }
               return 0;
             })
           : //descendente
-            state.dogs.sort(function (a, b) {
-              if (a.name > b.name) {
+            state.allDogs.sort(function (a, b) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return -1;
               }
-              if (b.name > a.name) {
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
                 return 1;
               }
               return 0;

@@ -65,6 +65,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const { name, height, weight, life_span, temperaments, image } = req.body;
+    
     const newDog = await Dog.create({
       name,
       height,

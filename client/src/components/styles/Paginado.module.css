@@ -14,6 +14,8 @@
 }
 
 
+
+
 .paginas button {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
@@ -21,10 +23,7 @@
   border: none;
   color: #5894ae;
   padding: 4px;
-  margin: 2px;
-  /* margin-left: 3px;
-  margin-right: 3px; */
-  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1); */
+  margin: 2px; 
   background-color: rgba(255, 255, 255, 0.267);
 }
 
@@ -32,7 +31,8 @@
   padding: 0px;
   font-size: 25px;
   font-weight: bolder;
-  /* transition: 0.8s ease; */
+
+
 }
 
 

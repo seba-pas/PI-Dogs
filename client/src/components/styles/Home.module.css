@@ -28,7 +28,6 @@
 
 .selectors {
   margin-top: 20px;
-
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -70,12 +69,12 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   color: #5894ae;
   border: none;
+  transition: font-size 0.5s ease;
 }
 
 .boton:hover {
   font-size: large;
   background-color: rgba(255, 255, 255, 1);
-  transition: 0.5s ease;
 }
 
 .searchbar {
@@ -128,12 +127,12 @@ input::placeholder {
   /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
   color: #5894ae;
   border: none;
+  transition: font-size 0.5s ease;
 }
 
 .boton2:hover {
   font-size: large;
   background-color: rgba(255, 255, 255, 1);
-  transition: 0.5s ease;
 }
 .containerC {
   background-color: rgba(255, 255, 255, 0.85);
@@ -163,19 +162,18 @@ input::placeholder {
 .containerC input {
   display: flex;
   flex-direction: column;
-
   margin-left: 20%;
   margin-top: 10px;
   margin-bottom: 10px;
   font-weight: bold;
   color: white;
-
   background-color: #5894ae;
   width: 300px;
   text-align: center;
-
   padding: 5px 10px;
 }
+
+
 
 .containerC select {
   font-family: "Montserrat", sans-serif;
@@ -185,7 +183,6 @@ input::placeholder {
   border-radius: 18px;
   color: white;
   background-color: rgba(88, 148, 174, 0.9);
-
   width: auto;
   overflow: hidden;
   padding: 5px;
@@ -197,18 +194,15 @@ input::placeholder {
   margin-left: 30%;
   margin-top: 20px;
   margin-bottom: 20px;
-
   height: 30px;
   width: 200px;
   background-color: #5894ae;
   text-align: center;
   padding-top: 5px;
-
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
   font-size: 95%;
   border-radius: 18px;
-  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
   color: white;
   border: none;
 }
@@ -222,12 +216,9 @@ input::placeholder {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
   transition: background-color 0.85s ease;
   transition: box-shadow 0.85s ease;
-
   font-family: "Montserrat", sans-serif;
   padding-bottom: 20px;
-
   width: 30%;
-
   height: auto;
   border-radius: 20px;
   margin: 50px;
@@ -290,3 +281,4 @@ input::placeholder {
   font-size: 20px;
   font-weight: bold;
 }
+

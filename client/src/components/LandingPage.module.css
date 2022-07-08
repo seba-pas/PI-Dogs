@@ -13,15 +13,33 @@ body {
 }
 
 .div {
-  margin-top: 150px;
+ 
+  margin-top: 85px;
   margin-right: 100px;
   display: flex;
   justify-content: center;
   align-self: center;
+}
+.div h3{
+  color: white;
+  font-family: "Montserrat", sans-serif;
+
+  background-color: #5894ae;
+  padding: 5px;
+  border-radius: 18px;
+
 }
 
 .title {
   color: white;
   margin-right: 120px;
   font-size: 45px;
+}
+
+
+.error {  
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  background-color: #5894aea3; 
+
 }

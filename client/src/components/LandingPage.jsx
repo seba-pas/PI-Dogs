@@ -7,6 +7,7 @@ export default function LandingPage() {
   return (
     <div>
       <Link to="/home">
+        
         <img
           style={{
             marginTop: "100px",
@@ -20,8 +21,8 @@ export default function LandingPage() {
           alt="sorry, could not find img"
         />
 
-        <div className={styles.div}></div>
       </Link>
+        <div className={styles.div}><h3>Pet The Dog</h3></div>
     </div>
   );
 }
