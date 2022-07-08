@@ -8,26 +8,19 @@ function validate(input) {
   let errors = {};
   if (!input.name) {
     errors.name = "Name needed";
-  }
-  if (!input.image) {
+  } else if (!input.image) {
     errors.name = "image needed";
-  }
-  if (!input.height_min) {
+  } else if (!input.height_min) {
     errors.name = "min height needed";
-  }
-  if (!input.height_max) {
+  } else if (!input.height_max) {
     errors.name = "max height needed";
-  }
-  if (!input.weight_min) {
+  } else if (!input.weight_min) {
     errors.name = "min weight needed";
-  }
-  if (!input.weight_max) {
+  } else if (!input.weight_max) {
     errors.name = "max weight needed";
-  }
-  if (!input.life_span_min) {
+  } else if (!input.life_span_min) {
     errors.name = "min life span needed";
-  }
-  if (!input.life_span_max) {
+  } else if (!input.life_span_max) {
     errors.name = "max life span needed";
   }
   return errors;
@@ -35,7 +28,10 @@ function validate(input) {
 
 export default function CreateDog() {
   const dispatch = useDispatch();
-  const temperaments = useSelector((state) => state.temperaments);
+  let temperaments = useSelector((state) => state.temperaments);
+  temperaments = temperaments.sort((a, b) => {
+    return a.name - b.name;
+  });
   const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
@@ -52,39 +48,52 @@ export default function CreateDog() {
   }, [dispatch]);
 
   function handleChange(e) {
+    e.preventDefault();
     setInput({
       ...input,
       [e.target.name]: e.target.value,
     });
-    setErrors({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
 
   function handleSelect(e) {
-    setInput({
-      ...input,
-      temperaments: [...input.temperaments, e.target.value],
-    });
+    e.preventDefault();
+    if (
+      !input.temperaments.includes(e.target.value) &&
+      e.target.value !== "Choose temperaments"
+    )
+      setInput({
+        ...input,
+        temperaments: [...input.temperaments, e.target.value],
+      });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    dispatch(postDog(input));
-    alert("New Breed Created");
-    setInput({
-      name: "",
-      image: "",
-      height_min: "",
-      height_max: "",
-      weight_min: "",
-      weight_max: "",
-      life_span_min: "",
-      life_span_max: "",
-      temperaments: [],
-    });
+    setErrors(validate(input));
+    const alerts = validate(input);
+    if (Object.values(alerts).length !== 0) {
+      alert("All fields must be completed");
+    } else {
+      dispatch(postDog(input));
+      alert("New Breed Created");
+      setInput({
+        name: "",
+        image: "",
+        height_min: "",
+        height_max: "",
+        weight_min: "",
+        weight_max: "",
+        life_span_min: "",
+        life_span_max: "",
+        temperaments: [],
+      });
+    }
   }
 
   return (
@@ -108,6 +117,7 @@ export default function CreateDog() {
             name="image"
             onChange={(e) => handleChange(e)}
           />
+          {errors.image && <h4 className="error">{errors.image}</h4>}
         </div>
         <div>
           <label>Min. Height</label>
@@ -117,6 +127,7 @@ export default function CreateDog() {
             name="height_min"
             onChange={(e) => handleChange(e)}
           />
+          {errors.height_min && <h4 className="error">{errors.height_min}</h4>}
         </div>
         <div>
           <label>Max. Height</label>
@@ -126,6 +137,7 @@ export default function CreateDog() {
             name="height_max"
             onChange={(e) => handleChange(e)}
           />
+          {errors.height_max && <h4 className="error">{errors.height_max}</h4>}
         </div>
         <div>
           <label>Min. Weight</label>
@@ -135,6 +147,7 @@ export default function CreateDog() {
             name="weight_min"
             onChange={(e) => handleChange(e)}
           />
+          {errors.weight_min && <h4 className="error">{errors.weight_min}</h4>}
         </div>
         <div>
           <label>Max. Weight</label>
@@ -144,6 +157,7 @@ export default function CreateDog() {
             name="weight_max"
             onChange={(e) => handleChange(e)}
           />
+          {errors.weight_max && <h4 className="error">{errors.weight_max}</h4>}
         </div>
         <div>
           <label>Life Span Min</label>
@@ -153,6 +167,9 @@ export default function CreateDog() {
             name="life_span_min"
             onChange={(e) => handleChange(e)}
           />
+          {errors.life_span_min && (
+            <h4 className="error">{errors.life_span_min}</h4>
+          )}
         </div>
         <div>
           <label>Life Span Max</label>
@@ -162,6 +179,9 @@ export default function CreateDog() {
             name="life_span_max"
             onChange={(e) => handleChange(e)}
           />
+          {errors.life_span_max && (
+            <h4 className="error">{errors.life_span_max}</h4>
+          )}
         </div>
         <div>
           <label>Temperaments</label>
@@ -181,13 +201,14 @@ export default function CreateDog() {
             )}
           </select>
           <h5 className="chosen">{input.temperaments.map((e) => e + " ")}</h5>
+          {errors.name && <h5 style={{fontWeight: 'bold'}}>{errors.name}</h5>}
 
           <button style={{ textDecoration: "none" }} type="submit">
             Create Breed
           </button>
         </div>
       </form>
-      <Link to="/">
+      <Link to="/home">
         <button>Back</button>
       </Link>
     </div>
