@@ -39,28 +39,24 @@ async function getDbDogs(req, res) {
           attributes: [],
         },
       },
-    });  
-     
+    });
   } catch (error) {
     console.log("error in getApidogs", error);
   }
 }
-
-
-
 
 async function getAllDogs() {
   try {
     let dogsFromApi = await getApiDogs();
     let dogsFromDb = await getDbDogs();
     let allDogs = dogsFromApi.concat(dogsFromDb);
-          return allDogs;
-  } catch(error){
-    console.log('error in getAllDogs', error)
+    return allDogs;
+  } catch (error) {
+    console.log("error in getAllDogs", error);
   }
 }
 //     if (dogsFromDb[0]) {
-//      
+//
 //     } else {
 //       return dogsFromApi;
 //     }
@@ -72,6 +68,5 @@ async function getAllDogs() {
 module.exports = {
   getAllDogs,
   getDbDogs,
-  getApiDogs
-
+  getApiDogs,
 };
