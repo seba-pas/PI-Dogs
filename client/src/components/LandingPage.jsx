@@ -22,7 +22,7 @@ export default function LandingPage() {
         />
 
       </Link>
-        <div className={styles.div}><h3>Pet The Dog</h3></div>
+      
     </div>
   );
 }

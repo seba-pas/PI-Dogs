@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
       image: dog.image,
       weight: dog.weight,
       temperaments: dog.temperament ? dog.temperament : dog.temperaments,
-    };
+    }
   });
   if (name) {
     let search = await allDogs.filter((dog) =>
@@ -86,5 +86,15 @@ router.post("/", async (req, res) => {
     res.send(error);
   }
 });
+
+
+router.delete('/:id', (req, res) => {
+  const {id} = req.params
+
+  let deletedDog = Dog.destroy({
+    where: {id : id}
+  })
+  res.status(200).send(deletedDog)
+})
 
 module.exports = router;

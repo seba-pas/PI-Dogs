@@ -2,7 +2,7 @@ const initialState = {
   dogs: [],
   temperaments: [],
   allDogs: [],
-  dogDetails: {}
+  dogDetails: {},
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -22,17 +22,17 @@ export default function rootReducer(state = initialState, action) {
       let sortedArr =
         action.payload === "asc"
           ? // ascendente
-            state.allDogs.sort(function (a, b) {
+            state.dogs.sort(function (a, b) {
               if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
               }
-              if (b.name.toLowerCase()> a.name.toLowerCase()) {
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
                 return -1;
               }
               return 0;
             })
           : //descendente
-            state.allDogs.sort(function (a, b) {
+            state.dogs.sort(function (a, b) {
               if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return -1;
               }
@@ -98,8 +98,8 @@ export default function rootReducer(state = initialState, action) {
         dogs: tempsFilter,
       };
     case "CREATED_FILTER":
-      const dogsToCreatedFilter = state.allDogs; 
-      console.log(dogsToCreatedFilter)    
+      const dogsToCreatedFilter = state.allDogs;
+      console.log(dogsToCreatedFilter);
       const createdFilter =
         action.payload === "created"
           ? dogsToCreatedFilter.filter((e) => e.id.length > 6)
@@ -113,27 +113,24 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         dogs: action.payload,
       };
-      // case 'POST_DOG':
-      //   return {
-      //     ...state
-      //   }
-      case 'GET_DETAILS':
-        return {
-          ...state,
-          dogDetails: action.payload
-        }
-        case 'SET_DETAIL_DOGS':
-          return {
-            ...state,
-            dogDetails: {}    
-
-
-          }
-          case 'POST_DOG':
-            return {
-              ...state,
-
-            }
+    // case 'POST_DOG':
+    //   return {
+    //     ...state
+    //   }
+    case "GET_DETAILS":
+      return {
+        ...state,
+        dogDetails: action.payload,
+      };
+    case "SET_DETAIL_DOGS":
+      return {
+        ...state,
+        dogDetails: {},
+      };
+    case "POST_DOG":
+      return {
+        ...state,
+      };
 
     default:
       return {
