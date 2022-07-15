@@ -13,9 +13,6 @@
   margin-bottom: 10px;
 }
 
-
-
-
 .paginas button {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
@@ -23,7 +20,7 @@
   border: none;
   color: #5894ae;
   padding: 4px;
-  margin: 2px; 
+  margin: 2px;
   background-color: rgba(255, 255, 255, 0.267);
 }
 
@@ -31,10 +28,30 @@
   padding: 0px;
   font-size: 25px;
   font-weight: bolder;
-
-
 }
 
+@media screen and (max-width: 1075px) {
+  .paginas {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .paginas {
+    width: 100%;
+    justify-content: center;
 
-
-
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .paginas button {
+    font-size: 10px;
+    padding:1.2px;
+  }
+  .paginas button:hover {
+    font-size: 7px;
+  }
+}

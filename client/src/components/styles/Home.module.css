@@ -282,3 +282,24 @@ input::placeholder {
   font-weight: bold;
 }
 
+@media screen and (max-width: 700px) {
+  .selectors {
+    width: 100%;
+  }
+  .selectors select {
+    width: 20%;
+    height: auto;
+    padding: 0.5px;
+    font-size: 10px;
+    margin: 1.2px;
+  }
+
+ .cont {
+  width: 100%;
+ }
+ .title {
+  width: 100%;
+ }
+ 
+
+}

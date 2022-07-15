@@ -4,3 +4,11 @@
     justify-content: space-between;
     text-decoration:none;
 }
+
+@media screen and (max-width: 650px) {
+    .tarjeta {
+        flex-direction: column;
+    }
+    
+
+}
