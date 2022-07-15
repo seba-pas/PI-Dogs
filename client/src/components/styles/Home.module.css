@@ -304,10 +304,10 @@ input::placeholder {
   }
   .containerC {
     width: 80%;
-    margin-left: 10%;
+    margin-left: 0;
   }
 
   .containerC input {
-    width: 50px;
+    width: 150px;
   }
 }
