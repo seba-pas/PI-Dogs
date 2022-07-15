@@ -15,6 +15,8 @@ export default function LandingPage() {
         />
 
       </Link>
+
+     <p>Click Me!</p>
       
     </div>
   );
