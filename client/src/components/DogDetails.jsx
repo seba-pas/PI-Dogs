@@ -49,7 +49,7 @@ export default function DogDetail() {
         </div>
       ) : (
         <div className={styles.spinner}>
-          <SpinnerCircular color="white" size="300px" />
+          <SpinnerCircular color="white" size="200px" />
         </div>
       )}
     </div>
