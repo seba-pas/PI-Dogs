@@ -299,7 +299,11 @@ input::placeholder {
  }
  .title {
   width: 100%;
+  margin-right: 0;
+  border-radius: none;
  }
- 
+ .containerD {
+  width: 80%;
+ }
 
 }
