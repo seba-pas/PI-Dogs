@@ -59,7 +59,7 @@ link {
 }
 
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 1000px) {
   .container {
       width: 80%;
   }

@@ -9,14 +9,7 @@ export default function LandingPage() {
       <Link to="/home">
         
         <img
-          style={{
-            marginTop: "100px",
-            display: "flex",
-            marginLeft: "30%",
-            height: "400px",
-            width: "auto",
-            filter: "drop-shadow(10px 10px 10px black)",
-          }}
+         className={styles.imagen}
           src={image}
           alt="sorry, could not find img"
         />
