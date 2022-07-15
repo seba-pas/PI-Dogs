@@ -40,7 +40,6 @@
   .paginas {
     width: 100%;
     justify-content: center;
-
     margin-left: 0;
     margin-right: 0;
     border-radius: 0;
@@ -48,7 +47,7 @@
     padding-right: 0;
   }
   .paginas button {
-    font-size: 10px;
+    font-size: 12px;
     padding:1.2px;
   }
   .paginas button:hover {

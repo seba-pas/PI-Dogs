@@ -107,7 +107,6 @@ input::placeholder {
   padding-top: 20px;
   padding-bottom: 20px;
   font-family: "Montserrat", sans-serif;
-
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -253,8 +252,7 @@ input::placeholder {
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
   font-size: 95%;
-  border-radius: 18px;
-  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
+  border-radius: 18px; 
   color: white;
   border: none;
 }
@@ -265,7 +263,6 @@ input::placeholder {
   background-color: rgba(255, 255, 255, 0.45);
   border-radius: 18px;
   font-family: "Montserrat", sans-serif;
-
   color: white;
   font-size: 150px;
 }
@@ -274,7 +271,6 @@ input::placeholder {
   justify-content: center;
   display: flex;
   align-content: center;
-
   color: #5894ae;
   font-size: 20px;
   font-weight: bold;
@@ -297,14 +293,16 @@ input::placeholder {
   }
   .title {
     margin-right: 0;
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
     width: 80%;
   }
 
   .containerD {
     width: 80%;
-    margin-left: 10%;
+    margin: 10%;
+
+    
   }
   .containerC {
     width: 80%;
