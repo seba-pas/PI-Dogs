@@ -298,14 +298,18 @@ input::placeholder {
   width: 100%;
  }
  .title {
-  width: 100%;
+ 
   margin-right: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
   width: 80%;
  }
 
  .containerD {
+  width: 80%;
+  margin-left: 0;
+ }
+ .containerC {
   width: 80%;
  }
 
