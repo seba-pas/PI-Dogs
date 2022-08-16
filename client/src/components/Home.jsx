@@ -82,7 +82,7 @@ export default function Home() {
   // render del componente
   return (
     <div>
-      <h1 className={styles.title}>DogsApp</h1>
+    
 
       <div className={styles.selectors}>
         {/* alfabetic filter */}
